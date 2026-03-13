@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fera Febrianti Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+color:white;
+background:linear-gradient(270deg,#0f172a,#1e293b,#312e81,#1e1b4b);
+background-size:800% 800%;
+animation:gradientMove 20s ease infinite;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* CURSOR LIGHT */
+
+.cursor{
+position:fixed;
+width:350px;
+height:350px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(255,255,255,0.15),transparent 60%);
+pointer-events:none;
+transform:translate(-50%,-50%);
+mix-blend-mode:overlay;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 8%;
+position:fixed;
+width:100%;
+transition:.4s;
+z-index:1000;
+}
+
+nav.scrolled{
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(12px);
+}
+
+.logo{
+font-size:20px;
+font-weight:700;
+}
+
+.verify{
+color:#3b82f6;
+}
+
+nav ul{
+display:flex;
+gap:28px;
+list-style:none;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+opacity:.85;
+}
+
+nav a:hover{
+opacity:1;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:120px 20px;
+gap:22px;
+}
+
+/* FOTO PROFIL */
+
+.profile{
+width:160px;
+height:160px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid rgba(255,255,255,0.2);
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* TEXT */
+
+.hero h1{
+font-size:44px;
+}
+
+.hero span{
+background:linear-gradient(90deg,#60a5fa,#c084fc);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.hero p{
+opacity:.85;
+}
+
+/* VIDEO */
+
+.video{
+width:100%;
+max-width:760px;
+aspect-ratio:16/9;
+margin-top:20px;
+}
+
+.video iframe{
+width:100%;
+height:100%;
+border-radius:14px;
+box-shadow:0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* BUTTON */
+
+.btn{
+padding:13px 30px;
+background:linear-gradient(90deg,#60a5fa,#c084fc);
+border-radius:30px;
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+/* SECTION */
+
+section{
+padding:110px 8%;
+}
+
+.title{
+text-align:center;
+font-size:34px;
+margin-bottom:45px;
+}
+
+/* CARD */
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(12px);
+transition:.35s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* SKILLS */
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:22px;
+}
+
+/* PROJECT */
+
+.project-list{
+max-width:700px;
+margin:auto;
+line-height:1.9;
+font-size:18px;
+}
+
+/* STORY */
+
+.story{
+max-width:700px;
+margin:auto;
+text-align:center;
+font-style:italic;
+line-height:1.8;
+font-size:20px;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
+.whatsapp{
+display:inline-block;
+margin-top:20px;
+padding:14px 32px;
+background:#25D366;
+border-radius:40px;
+text-decoration:none;
+color:white;
+font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:40px;
+opacity:.6;
+}
+
+/* REVEAL */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:30px;
+}
+
+nav ul{
+display:none;
+}
+
+.profile{
+width:130px;
+height:130px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="cursor"></div>
+
+<nav>
+
+<div class="logo">
+Fera Febrianti <span class="verify">✔</span>
+</div>
+
+<ul>
+
+<li><a href="#about">About</a></li>
+<li><a href="#expertise">Expertise</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#story">Story</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<img src="profile.jpg" class="profile">
+
+<h1>Hello I'm <span id="typing"></span></h1>
+
+<p>Digital Marketing Specialist & Creative Designer</p>
+
+<div class="video">
+
+<iframe
+src="https://www.youtube.com/embed/KWZGAExj-es"
+title="Elastic Heart"
+allowfullscreen>
+</iframe>
+
+</div>
+
+<br>
+
+<a href="#projects" class="btn">View Projects</a>
+
+</section>
+
+<section id="about" class="reveal">
+
+<h2 class="title">About Me</h2>
+
+<div class="card">
+
+Halo! Saya Fera Febrianti, S.M., seorang spesialis pemasaran digital yang hobi merancang identitas brand dan konten visual yang berkesan. Meski cenderung introvert, saya memiliki ketertarikan besar pada dunia luar, terutama melalui traveling dan wisata kuliner yang seringkali menjadi sumber inspirasi utama dalam karya-karya kreatif saya.
+
+</div>
+
+</section>
+
+<section id="expertise" class="reveal">
+
+<h2 class="title">Expertise</h2>
+
+<div class="skills">
+
+<div class="card">Digital Marketing</div>
+<div class="card">Social Media Specialist</div>
+<div class="card">Online Shop Marketing</div>
+<div class="card">Graphic Design</div>
+<div class="card">UI / UX Design</div>
+<div class="card">Front End Development</div>
+<div class="card">Content Writing</div>
+<div class="card">Brand Strategy</div>
+
+</div>
+
+</section>
+
+<section id="projects" class="reveal">
+
+<h2 class="title">Projects</h2>
+
+<div class="project-list">
+
+<p>• Social Media Campaign Strategy</p>
+<p>• Branding Identity Design</p>
+<p>• UI/UX Website Design</p>
+<p>• Digital Marketing Campaign</p>
+<p>• Creative Content Production</p>
+
+</div>
+
+</section>
+
+<section id="story" class="reveal">
+
+<h2 class="title">Story</h2>
+
+<div class="story">
+
+Barang siapa yang takut kelaparan niscaya dia tidak percaya akan adanya Tuhan yang Maha Kaya.
+
+Dan jangan pernah takut kesusahan kalau kamu masih hamba dari Tuhan yang Maha Esa.
+
+</div>
+
+</section>
+
+<section id="contact" class="reveal">
+
+<h2 class="title">Contact</h2>
+
+<div class="contact">
+
+<p>Untuk kolaborasi ataupun sekedar bertanya hubungi nomor saya ya</p>
+
+<p>Email : xavera31@gmail.com</p>
+
+<a class="whatsapp"
+href="https://wa.me/6285708143870"
+target="_blank">
+Chat WhatsApp
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Fera Febrianti Portfolio
+
+</footer>
+
+<script>
+
+/* NAVBAR SCROLL */
+
+window.addEventListener("scroll",function(){
+
+let nav=document.querySelector("nav");
+
+if(window.scrollY>50){
+nav.classList.add("scrolled");
+}else{
+nav.classList.remove("scrolled");
+}
+
+});
+
+/* TYPING EFFECT */
+
+const text="Fera Febrianti";
+let i=0;
+
+function typing(){
+
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(typing,120);
+}
+
+}
+
+typing();
+
+/* CURSOR LIGHT */
+
+const cursor=document.querySelector(".cursor");
+
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
+
+/* REVEAL SCROLL */
+
+function reveal(){
+
+let reveals=document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight=window.innerHeight;
+let elementTop=reveals[i].getBoundingClientRect().top;
+
+if(elementTop < windowHeight-100){
+reveals[i].classList.add("active");
+}
+
+}
+
+}
+
+window.addEventListener("scroll",reveal);
+
+</script>
+
+</body>
+</html>
